@@ -95,3 +95,18 @@ body{
     font-weight: bold;
     color: #fff;
 }
+.scoreboard h2{
+    color:var(--sand-yellow);
+}
+.scoreboard h3{
+     color: var(--tomato-red);
+     letter-spacing: 1px;
+     font-size: 48px;
+}
+.winner{
+    color: #fff;
+}
+#fight{
+    margin: 0rem 0rem 2rem 0rem;
+    padding: 2rem 8rem;
+}

@@ -4,20 +4,25 @@ const cardContainer =document.querySelector(".card-container");
 const outputContainer= document.querySelector(".output-container");
 const wearponParagraph =document.querySelectorAll(".weaponText");
 const displayCurrentWeapon=document.getElementById("weapon");
+const currentRound = document.getElementById("round");
 
 startGameBtn.addEventListener("click",startGame);
 startGameBtn.addEventListener("click",startGame);
 
 
 function startGame(){
+    const fightBtn=document.getElementById("fight");
     hideElement(startGameBtn)
     showElement(cardContainer);
     showElement(outputContainer);
 
-
     wearponParagraph.forEach((p)=>{
         p.addEventListener("click",chosenWeapon)
-    })
+    });
+
+
+    fightBtn.addEventListener("click",fight)
+
 }
 
 
@@ -30,15 +35,28 @@ function hideElement(element){
 }
 
 function chosenWeapon(e){
-    console.log(e.target.textContent)
    let currentWeapon=e.target.textContent;
-   displayCurrentWeapon.textContent=currentWeapon
+   displayCurrentWeapon.textContent=currentWeapon;
+   return currentWeapon;
+}
+
+//Computer and player fights
+function fight(){
+   let computerWeapon=computerPlay();
+   let userWeapon=userPlay();
+   console.log(computerWeapon)
+   console.log(userWeapon)
 }
 
 
+//User play
+function userPlay(){
+    const currentWeapon=document.getElementById("weapon").textContent;
+    return currentWeapon;
+}
 //Computer Play 
 function computerPlay(){
-    console.log(possibleOutcome[random()])
+   return possibleOutcome[random()]
 }
 
 function random(){

@@ -1,13 +1,11 @@
 const possibleOutcome=["Paper","Scissors","Rock"];
-const weapons = document.querySelectorAll(".weapon");
-
 const startGameBtn =document.getElementById("startGame");
 const cardContainer =document.querySelector(".card-container");
 const outputContainer= document.querySelector(".output-container");
+const wearponParagraph =document.querySelectorAll(".weaponText");
+const displayCurrentWeapon=document.getElementById("weapon");
+
 startGameBtn.addEventListener("click",startGame);
-
-
-
 startGameBtn.addEventListener("click",startGame);
 
 
@@ -17,9 +15,9 @@ function startGame(){
     showElement(outputContainer);
 
 
-    weapons.forEach(weapon => {
-        weapon.addEventListener("click",playerPlay)
-    });
+    wearponParagraph.forEach((p)=>{
+        p.addEventListener("click",chosenWeapon)
+    })
 }
 
 
@@ -31,7 +29,11 @@ function hideElement(element){
     element.style.display="none";
 }
 
-
+function chosenWeapon(e){
+    console.log(e.target.textContent)
+   let currentWeapon=e.target.textContent;
+   displayCurrentWeapon.textContent=currentWeapon
+}
 
 
 //Computer Play 

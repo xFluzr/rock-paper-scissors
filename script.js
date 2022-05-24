@@ -42,12 +42,50 @@ function chosenWeapon(e){
 
 //Computer and player fights
 function fight(){
+
+   let winner = document.querySelector(".winner");
+   let currentRound =document.getElementById("round");
+   let userScore =document.querySelector(".userScore");
+   let computerScore=document.querySelector(".computerScore");
+
    let computerWeapon=computerPlay();
    let userWeapon=userPlay();
-   console.log(computerWeapon)
-   console.log(userWeapon)
+   currentRound.textContent=parseInt(currentRound.textContent)+1;
+   winner.textContent=checkWeapons(userWeapon,computerWeapon);
+
+
+
+   if(winner.textContent==="Computer Wins!"){
+    computerScore.textContent=parseInt(computerScore.textContent)+1;
+   } 
+   else if(winner.textContent==="Player Wins!"){
+    userScore.textContent=parseInt(userScore.textContent)+1;
+   }
+   
 }
 
+//Should Take first userWeapon than ComputerWeapon
+function checkWeapons(weapon1,weapon2){
+    if(weapon1===weapon2){
+        return "Tie";
+    }
+    else if(weapon1==="Rock"&&weapon2==="Scissors"){
+        return "Player Wins!";
+    }
+    else if(weapon1==="Paper"&& weapon2==="Rock"){
+        return "Player Wins";
+    }
+    else if(weapon1==="Scissors"&& weapon2==="Paper"){
+        return "Player Wins!";
+    }
+    else{
+        return "Computer Wins!";
+    }
+}
+
+function whoIsWinner(winner){
+
+}
 
 //User play
 function userPlay(){
